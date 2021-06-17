@@ -4,6 +4,17 @@
     
     <section>
         <div class="container">
+
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
             <h1>Crea un nuovo fumetto</h1>
 
             <form action="{{ route('comics.store') }}" method="post">
@@ -18,7 +29,7 @@
 
                 <div class="form-group">
                     <label for="description">Descrizione</label>
-                    <textarea name="description" id="description" cols="30" rows="10" class="form-control" ></textarea>
+                    <textarea name="description" id="description" cols="30" rows="10" class="form-control"></textarea>
                 </div> 
 
                 <div class="form-group">

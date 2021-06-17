@@ -31,6 +31,13 @@
                                 ]) }}" class="btn btn-secondary">
                                 Modifica fumetto
                             </a>
+
+                            <form action="{{ route('comics.destroy', ['comic' => $comic->id]) }}" method="post">
+                                @csrf
+                                @method('DELETE')
+
+                                <input type="submit" class="btn btn-danger" value="Elimina">
+                            </form>
                         </div>
                       </div>
                 </div>

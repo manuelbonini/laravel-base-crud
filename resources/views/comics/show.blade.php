@@ -10,8 +10,10 @@
                 <img class="card-img-top" src="{{ $comic->image }}" alt="{{ $comic->title }}">
                 <div class="card-body">
 
-                    @if ($comic->description)
-                    <p class="card-text">Descrizione completa: {{ $comic->full_description }}</p>
+                    @if ($comic->full_description == NULL)
+                        @if ($comic->description)
+                        <p class="card-text">{{ $comic->description }}</p>
+                        @endif
                     @endif
 
                     <p class="card-text">Serie: {{ $comic->series }}</p>
